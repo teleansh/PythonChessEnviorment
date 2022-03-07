@@ -64,6 +64,7 @@ def rookValid(fr,to):
 def kingValid(fr,to):
     fnum = (conv(fr))-1
     tnum = (conv(to))-1
+    if not addressValid(fnum,tnum): return False
     con=False
     if fnum%8!=0:
         val = [fnum+1 , fnum-1,fnum+8,fnum-8]
@@ -73,7 +74,7 @@ def kingValid(fr,to):
 def pawnValid(fr,to,c):
     fnum = (conv(fr))-1
     tnum = (conv(to))-1
-
+    if not addressValid(fnum,tnum): return False
     
     if c=='w':
         if fr in range(8,16): vm = [fnum+8,fnum+16] 
@@ -98,6 +99,7 @@ def pawnValid(fr,to,c):
 def bishopValid(fr,to):
     fnum = (conv(fr))-1
     tnum = (conv(to))-1
+    if not addressValid(fnum,tnum): return False
     con1=False
     if abs(fnum-tnum)%9==0 or abs(fnum-tnum)%7==0:
         con1 = True
@@ -124,16 +126,20 @@ def bishopValid(fr,to):
     return con1
 
 def queenValid(fr,to):
+    fnum = (conv(fr))-1
+    tnum = (conv(to))-1
+    if not addressValid(fnum,tnum): return False
     return bishopValid(fr,to) or rookValid(fr,to)
 
 def knightValid(fr,to):
     fnum = (conv(fr))-1
     tnum = (conv(to))-1
+    if not addressValid(fnum,tnum): return False
     if tnum in [fnum+17,fnum-17,fnum+15,fnum-15,fnum+10,fnum-6,fnum+6,fnum-10]: con1=True
     if (b[fnum].isupper() and not b[tnum].isupper()) or (b[fnum].islower() and not b[tnum].islower()) : con2=True
     return con1 and con2
 
-
-
+def addressValid(fnum,tnum):
+    return 0<=fnum<64 and 0<=tnum<64
 
  
