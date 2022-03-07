@@ -126,9 +126,14 @@ def bishopValid(fr,to):
 def queenValid(fr,to):
     return bishopValid(fr,to) or rookValid(fr,to)
 
+def knightValid(fr,to):
+    fnum = (conv(fr))-1
+    tnum = (conv(to))-1
+    if tnum in [fnum+17,fnum-17,fnum+15,fnum-15,fnum+10,fnum-6,fnum+6,fnum-10]: con1=True
+    if (b[fnum].isupper() and not b[tnum].isupper()) or (b[fnum].islower() and not b[tnum].islower()) : con2=True
+    return con1 and con2
 
-    
-        
+
 
 
  
