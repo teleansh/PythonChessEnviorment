@@ -495,9 +495,39 @@ def kingMoves(pos):
     return move
 
 def pawnMoves(pos):
-    #to be worked upon
-    return True
+    num = conv(pos)-1
+    vm=[]
+    if b[num].islower() :
+        if b[num+8] =='.':vm.append(num+8)
+        if b[num+9].isupper() : vm.append(num+9)
+        if b[num+7].isupper() : vm.append(num+7)
+        if b[num+16] =='.' and 7<num<16 : vm.append(num+16) 
+    if b[num].isupper() :
+        if b[num-8] =='.':vm.append(num-8)
+        if b[num-9].islower() : vm.append(num-9)
+        if b[num-7].islower() : vm.append(num-7)
+        if b[num-16] =='.' and 7<num<16 : vm.append(num-16)
 
+    list =[]
+    for i in vm:
+        list.append(numToAlg(i))
+    return list
+
+
+def moves(pos):
+    num = conv(pos)-1
+    if b[num].lower() =='k':
+        return(kingMoves(pos))
+    elif b[num].lower() == 'q':
+        return(queenMoves(pos))
+    elif b[num].lower() == 'p':
+        return(pawnMoves(pos))
+    elif b[num].lower() == 'r':
+        return(rookMoves(pos))
+    elif b[num].lower() == 'b':
+        return(bishopMoves(pos))
+    elif b[num].lower() == 'n':
+        return(knightMoves(pos))
 
         
 def numToAlg(ind):
