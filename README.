@@ -1,2 +1,6 @@
 # PythonChessEnviorment
 Python Module to work on Chess related projects
+
+**display()**
+Prints view of current chessboard
+
