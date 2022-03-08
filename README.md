@@ -14,3 +14,13 @@ Python Module to work on Chess related projects.
 **moves(position)** : Returns all valid moves that can be played by a piece in specified square position , it takes one argument , which is the Algebraic Notation address of that piece.
 
 ![moves](https://user-images.githubusercontent.com/34571056/157230451-02295695-165d-45cb-9528-ad6c8bc3af18.png)
+
+**rookMoves(pos), pawnMoves(pos), queenMoves(pos), kingMoves(pos), knightMoves(pos), bishopMoves(pos)** also does the same thing but for a particular class of pieces only.
+
+**rookValid(fr,to), pawnValid(fr,to), queenValid(fr,to), kingValid(fr,to), knightValid(fr,to), bishopValid(fr,to)** returns a boolean value depending upon if a particular move is valid or not. This can also be done by comparing the input moves to moves() function list. However these functions donot focus on storing or calculating all the possible moves therefore are faster.
+
+![image](https://user-images.githubusercontent.com/34571056/157231581-78c28a40-8eac-416b-8385-3ea3537f79ce.png)
+
+**isCheck(position_of_king)** : Returns True if the king mentioned in argument is in check else False.
+
+Note: This project is under-development and contains many bugs. Contribution and reviews are appriciated.
