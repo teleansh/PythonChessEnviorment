@@ -529,6 +529,19 @@ def moves(pos):
     elif b[num].lower() == 'n':
         return(knightMoves(pos))
 
+def isCheck(pos):
+    num = conv(pos)-1
+    r = rookMoves(pos)
+    b = bishopMoves(pos)
+    n = knightMoves(pos)
+    check = False
+    for rcase in r:
+        if b[conv(rcase)-1].lower() in ['r','q'] and ( (b[num].islower() and b[conv(rcase)-1].isupper()) or (b[num].isupper() and b[conv(rcase)-1].islower()) ) : check=True
+    for bcase in r:
+        if b[conv(bcase)-1].lower() in ['b','q'] and ( (b[num].islower() and b[conv(rcase)-1].isupper()) or (b[num].isupper() and b[conv(rcase)-1].islower()) ): check=True
+    for kcas in r:
+        if b[conv(bcase)-1].lower()=='n' and ( (b[num].islower() and b[conv(rcase)-1].isupper()) or (b[num].isupper() and b[conv(rcase)-1].islower()) ): check=True
+    return check
         
 def numToAlg(ind):
     alp=(ind+1)%8
